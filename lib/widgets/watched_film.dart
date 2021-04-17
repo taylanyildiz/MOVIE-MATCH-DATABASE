@@ -5,7 +5,6 @@ import 'package:movie_match_home/models/film_model.dart';
 class WatchedFilm extends StatelessWidget {
   Future<List<Film>> watchedFilm() async {
     final currentFilm = <Film>[];
-
     for (Film f in listFilm) {
       for (var i = 0; i < f.user.length; i++) {
         if (currentUser.user_id == f.user[i].user_id) {
@@ -46,6 +45,42 @@ class WatchedFilm extends StatelessWidget {
             ),
           ),
         ),
+        Positioned(
+          bottom: 0.0,
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    '${films[index].user.length}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(width: 5.0),
+              Column(
+                children: [
+                  Icon(
+                    Icons.comment,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    '${films[index].user.length}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        )
       ],
     );
   }

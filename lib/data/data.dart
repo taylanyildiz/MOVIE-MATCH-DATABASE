@@ -185,8 +185,6 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[0],
-      listUser[1],
-      listUser[2],
     ],
   ),
   Film(
@@ -211,7 +209,6 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[0],
-      listUser[1],
       listUser[2],
     ],
   ),
@@ -226,6 +223,8 @@ final listFilm = <Film>[
       listUser[0],
       listUser[1],
       listUser[2],
+      listUser[3],
+      listUser[6],
     ],
   ),
   Film(
@@ -252,6 +251,7 @@ final listFilm = <Film>[
       listUser[0],
       listUser[1],
       listUser[2],
+      listUser[3],
     ],
   ),
   Film(
@@ -265,6 +265,8 @@ final listFilm = <Film>[
       listUser[0],
       listUser[1],
       listUser[2],
+      listUser[3],
+      listUser[6],
     ],
   ),
   Film(
@@ -278,6 +280,8 @@ final listFilm = <Film>[
       listUser[0],
       listUser[1],
       listUser[2],
+      listUser[5],
+      listUser[3],
     ],
   ),
   Film(
@@ -291,6 +295,9 @@ final listFilm = <Film>[
       listUser[4],
       listUser[1],
       listUser[2],
+      listUser[0],
+      listUser[3],
+      listUser[6],
     ],
   ),
 ];
