@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:movie_match_home/models/models.dart';
+import 'package:movie_match_home/models/user_model.dart';
 
 class Film {
   final int film_id;

@@ -5,8 +5,8 @@ class User {
   final int user_id;
   final Account account;
   final List<Film> film;
-  final Comment comment;
-  final Like like;
+  final List<Comment> comment;
+  final List<Like> like;
 
   User({
     @required this.user_id,

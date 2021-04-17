@@ -87,12 +87,3 @@ final films = <Film>[
     film_about: 'Social Network abou facebook',
   ),
 ];
-
-final currentFilm = <Film>[
-  films[13],
-  films[1],
-  films[11],
-  films[6],
-  films[4],
-  films[2],
-];
