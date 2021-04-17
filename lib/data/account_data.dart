@@ -2,8 +2,8 @@ import 'package:movie_match_home/models/account_model.dart';
 
 final accountImage = "assets/images/account_images/";
 final currentAccount = Account(
-  account_id: 0,
-  accont_realname: 'Taylan',
+  account_id: 1,
+  accont_realname: 'Ali',
   account_name: 'tylanyildz',
   accoutn_bio: 'Aksiyon dolu olucak bir film',
   account_birthdate: '08/05/1995',
@@ -11,3 +11,55 @@ final currentAccount = Account(
   profile_photo_2: '${accountImage}profile_2.png',
   profile_photo_3: '${accountImage}profile_3.png',
 );
+final accountList = <Account>[
+  Account(
+    account_id: 2,
+    accont_realname: 'Ali',
+    account_name: 'aliosmn',
+    accoutn_bio: 'Olabilir izlerim Kız var mı?',
+    account_birthdate: '08/05/1995',
+    profile_photo_1: '${accountImage}profile_1.png',
+    profile_photo_2: '${accountImage}profile_2.png',
+    profile_photo_3: '${accountImage}profile_3.png',
+  ),
+  Account(
+    account_id: 0,
+    accont_realname: 'Can',
+    account_name: 'canylz',
+    accoutn_bio: 'Aksiyon dolu olucak bir film',
+    account_birthdate: '08/05/2002',
+    profile_photo_1: '${accountImage}profile_1.png',
+    profile_photo_2: '${accountImage}profile_2.png',
+    profile_photo_3: '${accountImage}profile_3.png',
+  ),
+  Account(
+    account_id: 0,
+    accont_realname: 'Yağmur',
+    account_name: 'sue',
+    accoutn_bio: 'Film izlemeyi severim herzaman',
+    account_birthdate: '08/05/2002',
+    profile_photo_1: '${accountImage}profile_1.png',
+    profile_photo_2: '${accountImage}profile_2.png',
+    profile_photo_3: '${accountImage}profile_3.png',
+  ),
+  Account(
+    account_id: 0,
+    accont_realname: 'Barış',
+    account_name: 'dofdoff',
+    accoutn_bio: 'film zevkimiz uyuşsun yeter',
+    account_birthdate: '08/05/1999',
+    profile_photo_1: '${accountImage}profile_1.png',
+    profile_photo_2: '${accountImage}profile_2.png',
+    profile_photo_3: '${accountImage}profile_3.png',
+  ),
+  Account(
+    account_id: 0,
+    accont_realname: 'Elif',
+    account_name: 'elfsaglik',
+    accoutn_bio: 'Film iyidir',
+    account_birthdate: '08/05/1997',
+    profile_photo_1: '${accountImage}profile_1.png',
+    profile_photo_2: '${accountImage}profile_2.png',
+    profile_photo_3: '${accountImage}profile_3.png',
+  ),
+];
