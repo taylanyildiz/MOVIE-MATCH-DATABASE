@@ -1,4 +1,5 @@
 import 'package:movie_match_home/models/models.dart';
+import 'package:movie_match_home/src/movie_img.dart';
 
 // Current User
 final currentUser = User(
@@ -13,6 +14,7 @@ final currentUser = User(
   user_photo_3: 'assets/images/account/images/profile_1',
 );
 
+// User List
 final listUser = <User>[
   currentUser,
   User(
@@ -91,5 +93,298 @@ final listUser = <User>[
     user_photo_1: 'assets/images/account/images/profile_1',
     user_photo_2: 'assets/images/account/images/profile_1',
     user_photo_3: 'assets/images/account/images/profile_1',
+  ),
+];
+
+// Films List
+final filmList = <Film>[
+  Film(
+    film_id: 0,
+    film_name: 'Anatolia',
+    film_imgUrl: moviesList[0].imgUrl,
+    film_about: 'Anatolia',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 1,
+    film_name: 'Bird Box',
+    film_imgUrl: moviesList[1].imgUrl,
+    film_about: 'Bird Box',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[2],
+      listUser[4],
+      listUser[6],
+    ],
+  ),
+  Film(
+    film_id: 2,
+    film_name: 'Brigth',
+    film_imgUrl: moviesList[2].imgUrl,
+    film_about: 'Birght',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[5],
+      listUser[6],
+    ],
+  ),
+  Film(
+    film_id: 3,
+    film_name: 'The Dig',
+    film_imgUrl: moviesList[3].imgUrl,
+    film_about: 'The Dig',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[3],
+      listUser[2],
+      listUser[1],
+    ],
+  ),
+  Film(
+    film_id: 4,
+    film_name: 'The Django',
+    film_imgUrl: moviesList[4].imgUrl,
+    film_about: 'The Django',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 5,
+    film_name: 'God Father',
+    film_imgUrl: moviesList[5].imgUrl,
+    film_about: 'God Father',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 6,
+    film_name: 'Great Hack',
+    film_imgUrl: moviesList[6].imgUrl,
+    film_about: 'Great Hack',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 7,
+    film_name: 'Hateful Eight',
+    film_imgUrl: moviesList[7].imgUrl,
+    film_about: 'Hateul Eight',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 8,
+    film_name: 'Inception',
+    film_imgUrl: moviesList[8].imgUrl,
+    film_about: 'Inception',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 9,
+    film_name: 'Ivory',
+    film_imgUrl: moviesList[9].imgUrl,
+    film_about: 'Ivory',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 10,
+    film_name: 'Jumanji',
+    film_imgUrl: moviesList[10].imgUrl,
+    film_about: 'Jumanji',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 11,
+    film_name: 'The King',
+    film_imgUrl: moviesList[11].imgUrl,
+    film_about: 'The King',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 12,
+    film_name: 'Okja',
+    film_imgUrl: moviesList[12].imgUrl,
+    film_about: 'Okja',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 13,
+    film_name: 'The Pianist',
+    film_imgUrl: moviesList[13].imgUrl,
+    film_about: 'The Pianist',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+  Film(
+    film_id: 14,
+    film_name: 'Social Network',
+    film_imgUrl: moviesList[14].imgUrl,
+    film_about: 'Social Network',
+    film_director: 'film_director',
+    film_cast: 'film_cast',
+    user: [
+      listUser[0],
+      listUser[1],
+      listUser[2],
+    ],
+  ),
+];
+
+// Comments
+final listComments = <Comment>[
+  Comment(
+    comment_id: 0,
+    comment_text: 'comment_text',
+    user: listUser[0],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 1,
+    comment_text: 'comment_text',
+    user: listUser[0],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 2,
+    comment_text: 'comment_text',
+    user: listUser[2],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 3,
+    comment_text: 'comment_text',
+    user: listUser[3],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 4,
+    comment_text: 'comment_text',
+    user: listUser[5],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 5,
+    comment_text: 'comment_text',
+    user: listUser[7],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 6,
+    comment_text: 'comment_text',
+    user: listUser[6],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 7,
+    comment_text: 'comment_text',
+    user: listUser[6],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 8,
+    comment_text: 'comment_text',
+    user: listUser[1],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 9,
+    comment_text: 'comment_text',
+    user: listUser[1],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 10,
+    comment_text: 'comment_text',
+    user: listUser[0],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 11,
+    comment_text: 'comment_text',
+    user: listUser[2],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 12,
+    comment_text: 'comment_text',
+    user: listUser[4],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 13,
+    comment_text: 'comment_text',
+    user: listUser[4],
+    comment_time: 'comment_time',
+  ),
+  Comment(
+    comment_id: 14,
+    comment_text: 'comment_text',
+    user: listUser[3],
+    comment_time: 'comment_time',
   ),
 ];
