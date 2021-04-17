@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class User {
   final int user_id;
   final String user_realname;
@@ -9,13 +11,13 @@ class User {
   final String user_photo_3;
 
   User({
-    this.user_id,
-    this.user_realname,
-    this.user_name,
-    this.user_bio,
-    this.user_birthdate,
-    this.user_photo_1,
-    this.user_photo_2,
-    this.user_photo_3,
+    @required this.user_id,
+    @required this.user_realname,
+    @required this.user_name,
+    @required this.user_bio,
+    @required this.user_birthdate,
+    @required this.user_photo_1,
+    @required this.user_photo_2,
+    @required this.user_photo_3,
   });
 }
