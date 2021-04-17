@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_match_home/data/data.dart';
-import 'package:movie_match_home/widgets/current_user_avatar.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -26,9 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Row(
                 children: [],
               ),
-              actions: [
-                CurrentUserAvatar(),
-              ],
+              actions: [],
             )
           ],
         ),
