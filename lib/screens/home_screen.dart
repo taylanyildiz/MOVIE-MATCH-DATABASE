@@ -22,7 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              toolbarHeight: 100.0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20.0),
+                bottomRight: Radius.circular(20.0),
+              )),
+              toolbarHeight: 120.0,
               backgroundColor: Colors.black,
               leadingWidth: 150.0,
               leading: Row(

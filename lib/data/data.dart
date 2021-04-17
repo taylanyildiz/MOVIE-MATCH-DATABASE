@@ -10,8 +10,8 @@ final currentUser = User(
   user_mail: 'taylanyildz@outlook.com',
   user_birthdate: '05/08/1995',
   user_photo_1: moviesList[0].imgUrl,
-  user_photo_2: 'assets/images/account_images/profile_1.png',
-  user_photo_3: 'assets/images/account_images/profile_1.png',
+  user_photo_2: moviesList[0].imgUrl,
+  user_photo_3: moviesList[0].imgUrl,
 );
 
 // User List
@@ -24,9 +24,9 @@ final listUser = <User>[
     user_bio: 'Film zevklerimiz uyuşsun yeter',
     user_mail: 'yagmursue@gmail.com',
     user_birthdate: '05/08/2002',
-    user_photo_1: 'assets/images/account/images/profile_1.png',
-    user_photo_2: 'assets/images/account/images/profile_1.png',
-    user_photo_3: 'assets/images/account/images/profile_1.png',
+    user_photo_1: moviesList[0].imgUrl,
+    user_photo_2: moviesList[0].imgUrl,
+    user_photo_3: moviesList[0].imgUrl,
   ),
   User(
     user_id: 2,
@@ -35,9 +35,9 @@ final listUser = <User>[
     user_bio: 'Film zevklerimiz uyuşsun yeter',
     user_mail: 'baris_fevzi@outlook.com',
     user_birthdate: '05/08/1999',
-    user_photo_1: 'assets/images/account/images/profile_1.png',
-    user_photo_2: 'assets/images/account/images/profile_1.png',
-    user_photo_3: 'assets/images/account/images/profile_1.png',
+    user_photo_1: moviesList[0].imgUrl,
+    user_photo_2: moviesList[0].imgUrl,
+    user_photo_3: moviesList[0].imgUrl,
   ),
   User(
     user_id: 3,
@@ -46,9 +46,9 @@ final listUser = <User>[
     user_bio: 'Film zevklerimiz uyuşsun yeter',
     user_mail: 'saglikelif@outlook.com',
     user_birthdate: '05/08/1997',
-    user_photo_1: 'assets/images/account/images/profile_1.png',
-    user_photo_2: 'assets/images/account/images/profile_1.png',
-    user_photo_3: 'assets/images/account/images/profile_1.png',
+    user_photo_1: moviesList[0].imgUrl,
+    user_photo_2: moviesList[0].imgUrl,
+    user_photo_3: moviesList[0].imgUrl,
   ),
   User(
     user_id: 4,
@@ -57,9 +57,9 @@ final listUser = <User>[
     user_bio: 'Film zevklerimiz uyuşsun yeter',
     user_mail: 'emir_aktrk@outlook.com',
     user_birthdate: '05/08/2002',
-    user_photo_1: 'assets/images/account/images/profile_1.png',
-    user_photo_2: 'assets/images/account/images/profile_1.png',
-    user_photo_3: 'assets/images/account/images/profile_1.png',
+    user_photo_1: moviesList[0].imgUrl,
+    user_photo_2: moviesList[0].imgUrl,
+    user_photo_3: moviesList[0].imgUrl,
   ),
   User(
     user_id: 5,
@@ -68,9 +68,9 @@ final listUser = <User>[
     user_bio: 'Film zevklerimiz uyuşsun yeter',
     user_mail: 'matyarvsyl@outlook.com',
     user_birthdate: '05/08/1999',
-    user_photo_1: 'assets/images/account/images/profile_1.png',
-    user_photo_2: 'assets/images/account/images/profile_1.png',
-    user_photo_3: 'assets/images/account/images/profile_1.png',
+    user_photo_1: moviesList[0].imgUrl,
+    user_photo_2: moviesList[0].imgUrl,
+    user_photo_3: moviesList[0].imgUrl,
   ),
   User(
     user_id: 6,
@@ -79,9 +79,9 @@ final listUser = <User>[
     user_bio: 'Film zevklerimiz uyuşsun yeter',
     user_mail: 'cnozn@outlook.com',
     user_birthdate: '05/08/2002',
-    user_photo_1: 'assets/images/account/images/profile_1.png',
-    user_photo_2: 'assets/images/account/images/profile_1.png',
-    user_photo_3: 'assets/images/account/images/profile_1.png',
+    user_photo_1: moviesList[0].imgUrl,
+    user_photo_2: moviesList[0].imgUrl,
+    user_photo_3: moviesList[0].imgUrl,
   ),
   User(
     user_id: 7,
@@ -97,7 +97,7 @@ final listUser = <User>[
 ];
 
 // Films List
-final filmList = <Film>[
+final listFilm = <Film>[
   Film(
     film_id: 0,
     film_name: 'Anatolia',
@@ -288,7 +288,7 @@ final filmList = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[0],
+      listUser[4],
       listUser[1],
       listUser[2],
     ],
