@@ -109,6 +109,8 @@ final listFilm = <Film>[
     user: [
       listUser[4],
       listUser[2],
+      listUser[6],
+      listUser[3],
     ],
     comment: [
       listComments[0],
@@ -177,6 +179,7 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[6],
+      listUser[4],
     ],
     comment: [
       listComments[0],

@@ -3,17 +3,21 @@ import 'package:movie_match_home/models/models.dart';
 
 class CircleUser extends StatelessWidget {
   final User user;
-
-  const CircleUser({Key key, this.user}) : super(key: key);
+  final Function onPressed;
+  const CircleUser({Key key, @required this.user, @required this.onPressed})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: 22.0,
-      backgroundColor: Colors.red,
+    return GestureDetector(
+      onTap: onPressed,
       child: CircleAvatar(
-        radius: 20.0,
-        backgroundColor: Colors.grey,
-        backgroundImage: AssetImage(user.user_photo_1),
+        radius: 22.0,
+        backgroundColor: Colors.red,
+        child: CircleAvatar(
+          radius: 20.0,
+          backgroundColor: Colors.grey,
+          backgroundImage: AssetImage(user.user_photo_1),
+        ),
       ),
     );
   }
