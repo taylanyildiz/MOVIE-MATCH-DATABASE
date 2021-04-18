@@ -23,10 +23,16 @@ class _NavScreenState extends State<NavScreen> {
     Icons.notifications,
     Icons.settings,
   ];
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: 2,
       length: _icons.length,
       child: Scaffold(
         body: TabBarView(

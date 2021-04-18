@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/film_model.dart';
 
-class WatchedFilm extends StatefulWidget {
+class CurrentFilm extends StatefulWidget {
   @override
-  _WatchedFilmState createState() => _WatchedFilmState();
+  _CurrentFilmState createState() => _CurrentFilmState();
 }
 
-class _WatchedFilmState extends State<WatchedFilm> {
+class _CurrentFilmState extends State<CurrentFilm> {
   final currentFilm = <Film>[];
-  final isComments = <bool>[];
-  Color commentColor = Colors.white;
-
+  final isCurrentComment = <bool>[];
   Future<List<Film>> watchedFilm() async {
     currentFilm.clear();
-    isComments.clear();
+    isCurrentComment.clear();
     for (Film f in listFilm) {
       for (var i = 0; i < f.user.length; i++) {
         if (currentUser.user_id == f.user[i].user_id) {
@@ -22,15 +20,7 @@ class _WatchedFilmState extends State<WatchedFilm> {
         }
       }
     }
-    for (Film f in currentFilm) {
-      for (var i = 0; i < f.comment.length; i++) {
-        if (currentUser.user_id == f.comment[i].user.user_id) {
-          isComments.add(true);
-        } else {
-          isComments.add(false);
-        }
-      }
-    }
+
     return currentFilm;
   }
 
@@ -65,41 +55,48 @@ class _WatchedFilmState extends State<WatchedFilm> {
           ),
         ),
         Positioned(
-          bottom: 0.0,
-          child: Row(
-            children: [
-              Column(
-                children: [
-                  Icon(
-                    Icons.play_arrow,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    '${films[index].user.length}',
-                    style: TextStyle(
+            bottom: 0.0,
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    Icon(
+                      Icons.play_arrow,
                       color: Colors.white,
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(width: 5.0),
-              Column(
-                children: [
-                  Icon(
-                    Icons.comment,
-                    color: isComments[index] ? Colors.blue : Colors.white,
-                  ),
-                  Text(
-                    '${films[index].comment.length}',
-                    style: TextStyle(
-                      color: Colors.white,
+                    Text(
+                      '${films[index].user.length}',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        )
+                  ],
+                ),
+                SizedBox(width: 5.0),
+                Column(
+                  children: [
+                    Icon(
+                      Icons.comment,
+                      color: (() {
+                        for (var i = 0; i < films[index].comment.length; i++) {
+                          if (films[index].comment[i].user.user_id ==
+                              currentUser.user_id) {
+                            return Colors.blue;
+                          }
+                        }
+                        return Colors.white;
+                      }()),
+                    ),
+                    Text(
+                      '${films[index].comment.length}',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ))
       ],
     );
   }

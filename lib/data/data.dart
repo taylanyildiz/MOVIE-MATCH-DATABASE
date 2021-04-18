@@ -109,13 +109,13 @@ final listFilm = <Film>[
     user: [
       listUser[4],
       listUser[2],
-      listUser[6],
+      listUser[0],
       listUser[3],
     ],
     comment: [
       listComments[3],
       listComments[6],
-      listComments[4],
+      listComments[0],
     ],
   ),
   Film(
@@ -223,12 +223,12 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[4],
-      listUser[1],
+      listUser[0],
     ],
     comment: [
       listComments[3],
       listComments[6],
-      listComments[4],
+      listComments[0],
     ],
   ),
   Film(
@@ -259,10 +259,9 @@ final listFilm = <Film>[
       listUser[4],
     ],
     comment: [
-      listComments[0],
-      listComments[3],
-      listComments[6],
       listComments[4],
+      listComments[5],
+      listComments[0],
     ],
   ),
   Film(
@@ -276,7 +275,6 @@ final listFilm = <Film>[
       listUser[0],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -311,7 +309,6 @@ final listFilm = <Film>[
       listUser[4],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -331,7 +328,6 @@ final listFilm = <Film>[
       listUser[5],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -351,7 +347,6 @@ final listFilm = <Film>[
     ],
     comment: [
       listComments[3],
-      listComments[0],
       listComments[6],
       listComments[4],
     ],

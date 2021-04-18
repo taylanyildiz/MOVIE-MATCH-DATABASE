@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverPadding(
             padding: EdgeInsets.only(top: 10.0),
             sliver: SliverToBoxAdapter(
-              child: WatchedFilm(),
+              child: CurrentFilm(),
             ),
           ),
           SliverPadding(
