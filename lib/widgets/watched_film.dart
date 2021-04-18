@@ -2,13 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/film_model.dart';
 
-class WatchedFilm extends StatelessWidget {
+class WatchedFilm extends StatefulWidget {
+  @override
+  _WatchedFilmState createState() => _WatchedFilmState();
+}
+
+class _WatchedFilmState extends State<WatchedFilm> {
+  final currentFilm = <Film>[];
+  final isComments = <bool>[];
+  Color commentColor = Colors.white;
+
   Future<List<Film>> watchedFilm() async {
-    final currentFilm = <Film>[];
+    currentFilm.clear();
+    isComments.clear();
     for (Film f in listFilm) {
       for (var i = 0; i < f.user.length; i++) {
         if (currentUser.user_id == f.user[i].user_id) {
           currentFilm.add(f);
+        }
+      }
+    }
+    for (Film f in currentFilm) {
+      for (var i = 0; i < f.comment.length; i++) {
+        if (currentUser.user_id == f.comment[i].user.user_id) {
+          isComments.add(true);
+        } else {
+          isComments.add(false);
         }
       }
     }
@@ -68,7 +87,7 @@ class WatchedFilm extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.comment,
-                    color: Colors.white,
+                    color: isComments[index] ? Colors.blue : Colors.white,
                   ),
                   Text(
                     '${films[index].comment.length}',
@@ -83,6 +102,12 @@ class WatchedFilm extends StatelessWidget {
         )
       ],
     );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
   }
 
   @override

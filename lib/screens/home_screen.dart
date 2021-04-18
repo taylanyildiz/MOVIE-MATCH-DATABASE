@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverAppBar(
             floating: true,
             primary: true,
-            snap: true,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(20.0),
@@ -54,6 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           SliverPadding(
+            padding: EdgeInsets.all(10.0),
+            sliver: SliverToBoxAdapter(
+              child: Container(
+                height: 200.0,
+                color: Colors.red,
+              ),
+            ),
+          ),
+          SliverPadding(
             padding: EdgeInsets.only(top: 10.0),
             sliver: SliverToBoxAdapter(
               child: WatchedFilm(),
@@ -65,15 +73,18 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ConnectionFilm(),
             ),
           ),
-          SliverPadding(
-            padding: EdgeInsets.only(top: 10.0),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200.0,
-                color: Colors.blue,
-              ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return Container(
+                  height: 100.0,
+                  color: Colors.blue,
+                  margin: EdgeInsets.all(5.0),
+                );
+              },
+              childCount: currentUser.connection.length,
             ),
-          ),
+          )
         ],
       ),
     );

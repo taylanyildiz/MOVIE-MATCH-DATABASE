@@ -113,7 +113,6 @@ final listFilm = <Film>[
       listUser[3],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -131,7 +130,6 @@ final listFilm = <Film>[
       listUser[4],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -149,7 +147,6 @@ final listFilm = <Film>[
       listUser[5],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[4],
     ],
@@ -165,7 +162,6 @@ final listFilm = <Film>[
       listUser[3],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[4],
     ],
@@ -182,7 +178,6 @@ final listFilm = <Film>[
       listUser[4],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -200,7 +195,6 @@ final listFilm = <Film>[
       listUser[1],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -215,7 +209,6 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -233,7 +226,6 @@ final listFilm = <Film>[
       listUser[1],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[6],
       listComments[4],
@@ -250,7 +242,6 @@ final listFilm = <Film>[
       listUser[1],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[4],
     ],
@@ -303,7 +294,6 @@ final listFilm = <Film>[
       listUser[1],
     ],
     comment: [
-      listComments[0],
       listComments[3],
       listComments[4],
     ],
@@ -360,8 +350,8 @@ final listFilm = <Film>[
       listUser[0],
     ],
     comment: [
-      listComments[0],
       listComments[3],
+      listComments[0],
       listComments[6],
       listComments[4],
     ],
@@ -372,12 +362,6 @@ final listFilm = <Film>[
 final listComments = <Comment>[
   Comment(
     comment_id: 0,
-    comment_text: 'comment_text',
-    user: listUser[0],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 1,
     comment_text: 'comment_text',
     user: listUser[0],
     comment_time: 'today 20:12',
@@ -428,12 +412,6 @@ final listComments = <Comment>[
     comment_id: 9,
     comment_text: 'comment_text',
     user: listUser[1],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 10,
-    comment_text: 'comment_text',
-    user: listUser[0],
     comment_time: 'today 20:12',
   ),
   Comment(
