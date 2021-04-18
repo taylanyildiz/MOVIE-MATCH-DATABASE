@@ -12,7 +12,7 @@ class CircleProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(5.0),
+      padding: EdgeInsets.only(right: 10.0),
       child: Column(
         children: [
           InkWell(

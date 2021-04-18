@@ -18,53 +18,51 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF201D1D),
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20.0),
-                bottomRight: Radius.circular(20.0),
-              )),
-              toolbarHeight: 120.0,
-              backgroundColor: Colors.black,
-              leadingWidth: 150.0,
-              leading: Row(
-                children: [
-                  CircleButton(
-                    icon: Icon(Icons.search),
-                    onPressed: () => print('search'),
-                    iconSize: 30.0,
-                  ),
-                  CircleButton(
-                    icon: Icon(Icons.share),
-                    onPressed: () => print('share'),
-                    iconSize: 30.0,
-                  ),
-                ],
-              ),
-              actions: [
-                CircleProfile(
-                  currentUser: currentUser,
-                  onPressed: () => print('profile'),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20.0),
+              bottomRight: Radius.circular(20.0),
+            )),
+            toolbarHeight: 120.0,
+            backgroundColor: Colors.black,
+            leadingWidth: 150.0,
+            leading: Row(
+              children: [
+                CircleButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () => print('search'),
+                  iconSize: 30.0,
+                ),
+                CircleButton(
+                  icon: Icon(Icons.share),
+                  onPressed: () => print('share'),
+                  iconSize: 30.0,
                 ),
               ],
             ),
-            SliverPadding(
-              padding: EdgeInsets.only(top: 10.0),
-              sliver: SliverToBoxAdapter(
-                child: WatchedFilm(),
+            actions: [
+              CircleProfile(
+                currentUser: currentUser,
+                onPressed: () => print('profile'),
               ),
+            ],
+          ),
+          SliverPadding(
+            padding: EdgeInsets.only(top: 10.0),
+            sliver: SliverToBoxAdapter(
+              child: WatchedFilm(),
             ),
-            SliverPadding(
-              padding: EdgeInsets.only(top: 10.0),
-              sliver: SliverToBoxAdapter(
-                child: ConnectionFilm(),
-              ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.only(top: 10.0),
+            sliver: SliverToBoxAdapter(
+              child: ConnectionFilm(),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
