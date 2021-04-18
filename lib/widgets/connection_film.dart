@@ -28,12 +28,12 @@ class ConnectionFilm extends StatelessWidget {
   }
 
   _displayConnectionFilm(context, index, List<Film> films) {
-    return GestureDetector(
-      onTap: () => print('connections film'),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Container(
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        GestureDetector(
+          onTap: () => print('connections film'),
+          child: Container(
             margin: const EdgeInsets.all(5.0),
             height: double.infinity,
             width: 150.0,
@@ -48,8 +48,52 @@ class ConnectionFilm extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
+        ),
+        Positioned(
+          bottom: 0.0,
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    '${films[index].user.length}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(width: 5.0),
+              Column(
+                children: [
+                  Icon(
+                    Icons.comment,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    '${films[index].comment.length}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Positioned(
+          left: 0.0,
+          child: Container(
+            height: 200.0,
+            width: 100.0,
+            color: Colors.red,
+          ),
+        ),
+      ],
     );
   }
 
