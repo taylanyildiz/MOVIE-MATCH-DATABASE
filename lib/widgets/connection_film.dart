@@ -5,7 +5,7 @@ import 'package:movie_match_home/models/models.dart';
 class ConnectionFilm extends StatelessWidget {
   Future<List<Film>> connections() async {
     final connectionFilm = <Film>[];
-    currentUser.connection.add(listUser[0]);
+    currentUser.connection.add(listUser[2]);
     currentUser.connection.add(listUser[1]);
     for (Film f in listFilm) {
       for (var i = 0; i < f.user.length; i++) {
@@ -71,6 +71,7 @@ class ConnectionFilm extends StatelessWidget {
               builder: (context, constraint) {
                 if (constraint.hasData) {
                   List<Film> films = constraint.data;
+                  print(films.length);
                   return ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: films.length,
