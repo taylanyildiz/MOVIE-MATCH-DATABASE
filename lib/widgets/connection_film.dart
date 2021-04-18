@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/models.dart';
+import 'package:movie_match_home/widgets/circle_user.dart';
 
 class ConnectionFilm extends StatelessWidget {
   Future<List<Film>> connections() async {
@@ -22,13 +23,13 @@ class ConnectionFilm extends StatelessWidget {
     return GestureDetector(
       onTap: () => print('connections film'),
       child: Stack(
+        alignment: Alignment.topLeft,
         children: [
           Container(
             margin: const EdgeInsets.all(5.0),
             height: double.infinity,
-            width: 100.0,
+            width: 150.0,
             decoration: BoxDecoration(
-              color: Colors.white,
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: ClipRRect(
@@ -38,7 +39,7 @@ class ConnectionFilm extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -47,7 +48,7 @@ class ConnectionFilm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250.0,
+      height: 300.0,
       child: Column(
         children: [
           Container(
