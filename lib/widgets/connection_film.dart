@@ -7,17 +7,15 @@ class ConnectionFilm extends StatelessWidget {
     final connectionFilm = <Film>[];
     currentUser.connection.add(listUser[0]);
     currentUser.connection.add(listUser[1]);
-    for (var i = 0; i < currentUser.connection.length; i++) {
-      if (currentUser.connection[i] == await filmUser()) {}
-    }
-  }
-
-  Future<User> filmUser() async {
     for (Film f in listFilm) {
       for (var i = 0; i < f.user.length; i++) {
-        return f.user[i];
+        if (currentUser.connection[i < 2 ? i : 1].user_id ==
+            f.user[i].user_id) {
+          connectionFilm.add(f);
+        }
       }
     }
+    return connectionFilm;
   }
 
   _displayConnectionFilm(context, index, films) {
@@ -26,6 +24,7 @@ class ConnectionFilm extends StatelessWidget {
       child: Stack(
         children: [
           Container(
+            margin: const EdgeInsets.all(5.0),
             height: double.infinity,
             width: 100.0,
             decoration: BoxDecoration(
@@ -84,6 +83,7 @@ class ConnectionFilm extends StatelessWidget {
                     width: 100.0,
                     height: double.infinity,
                     color: Colors.white,
+                    child: Center(child: Text('error')),
                   );
                 }
               },
