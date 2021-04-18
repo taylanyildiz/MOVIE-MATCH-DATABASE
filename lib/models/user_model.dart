@@ -10,7 +10,7 @@ class User {
   final String user_photo_1;
   final String user_photo_2;
   final String user_photo_3;
-
+  final List<User> connection;
   User({
     @required this.user_id,
     @required this.user_realname,
@@ -21,5 +21,6 @@ class User {
     @required this.user_photo_1,
     @required this.user_photo_2,
     @required this.user_photo_3,
+    this.connection,
   });
 }

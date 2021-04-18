@@ -2,7 +2,7 @@ import 'package:movie_match_home/models/models.dart';
 import 'package:movie_match_home/src/movie_img.dart';
 
 // Current User
-final currentUser = User(
+var currentUser = User(
   user_id: 0,
   user_realname: 'Taylan',
   user_name: 'tylanyildz',
@@ -12,6 +12,7 @@ final currentUser = User(
   user_photo_1: moviesList[0].imgUrl,
   user_photo_2: moviesList[0].imgUrl,
   user_photo_3: moviesList[0].imgUrl,
+  connection: [],
 );
 
 // User List
@@ -110,6 +111,12 @@ final listFilm = <Film>[
       listUser[1],
       listUser[2],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 1,
@@ -136,6 +143,12 @@ final listFilm = <Film>[
       listUser[5],
       listUser[6],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 3,
@@ -148,6 +161,12 @@ final listFilm = <Film>[
       listUser[3],
       listUser[2],
       listUser[1],
+    ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
     ],
   ),
   Film(
@@ -162,6 +181,12 @@ final listFilm = <Film>[
       listUser[1],
       listUser[2],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 5,
@@ -175,6 +200,12 @@ final listFilm = <Film>[
       listUser[1],
       listUser[2],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 6,
@@ -185,6 +216,12 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[0],
+    ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
     ],
   ),
   Film(
@@ -199,6 +236,12 @@ final listFilm = <Film>[
       listUser[1],
       listUser[2],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 8,
@@ -210,6 +253,12 @@ final listFilm = <Film>[
     user: [
       listUser[0],
       listUser[2],
+    ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
     ],
   ),
   Film(
@@ -226,6 +275,12 @@ final listFilm = <Film>[
       listUser[3],
       listUser[6],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 10,
@@ -238,6 +293,12 @@ final listFilm = <Film>[
       listUser[0],
       listUser[1],
       listUser[2],
+    ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
     ],
   ),
   Film(
@@ -252,6 +313,12 @@ final listFilm = <Film>[
       listUser[1],
       listUser[2],
       listUser[3],
+    ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
     ],
   ),
   Film(
@@ -268,6 +335,12 @@ final listFilm = <Film>[
       listUser[3],
       listUser[6],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 13,
@@ -282,6 +355,12 @@ final listFilm = <Film>[
       listUser[2],
       listUser[5],
       listUser[3],
+    ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
     ],
   ),
   Film(
@@ -298,6 +377,12 @@ final listFilm = <Film>[
       listUser[0],
       listUser[3],
       listUser[6],
+    ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
     ],
   ),
 ];

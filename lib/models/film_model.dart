@@ -9,7 +9,7 @@ class Film {
   final String film_director;
   final String film_cast;
   final List<User> user; //Watched USER
-
+  final List<Comment> comment;
   Film({
     @required this.film_id,
     @required this.film_name,
@@ -17,6 +17,7 @@ class Film {
     @required this.film_about,
     @required this.film_director,
     @required this.film_cast,
-    @required this.user,
+    this.user,
+    this.comment,
   });
 }

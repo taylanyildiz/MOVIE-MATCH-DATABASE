@@ -22,7 +22,7 @@ class WatchedFilm extends StatelessWidget {
         GestureDetector(
           onTap: () => print('movies'),
           child: Container(
-            margin: EdgeInsets.all(5.0),
+            margin: const EdgeInsets.all(5.0),
             width: 100.0,
             height: double.infinity,
             decoration: BoxDecoration(
@@ -71,7 +71,7 @@ class WatchedFilm extends StatelessWidget {
                     color: Colors.white,
                   ),
                   Text(
-                    '${films[index].user.length}',
+                    '${films[index].comment.length}',
                     style: TextStyle(
                       color: Colors.white,
                     ),
