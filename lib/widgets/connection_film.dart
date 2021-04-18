@@ -18,7 +18,7 @@ class ConnectionFilm extends StatelessWidget {
     return connectionFilm;
   }
 
-  _displayConnectionFilm(context, index, films) {
+  _displayConnectionFilm(context, index, List<Film> films) {
     return GestureDetector(
       onTap: () => print('connections film'),
       child: Stack(
@@ -29,7 +29,14 @@ class ConnectionFilm extends StatelessWidget {
             width: 100.0,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Image.asset(
+                films[index].film_imgUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           )
         ],
@@ -40,8 +47,7 @@ class ConnectionFilm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.0,
-      color: Colors.red,
+      height: 250.0,
       child: Column(
         children: [
           Container(
@@ -65,29 +71,33 @@ class ConnectionFilm extends StatelessWidget {
               ],
             ),
           ),
+          Divider(height: 10.0, thickness: .5, color: Colors.white),
           Expanded(
-            child: FutureBuilder<List<Film>>(
-              future: connections(),
-              builder: (context, constraint) {
-                if (constraint.hasData) {
-                  List<Film> films = constraint.data;
-                  print(films.length);
-                  return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: films.length,
-                    itemBuilder: (context, index) =>
-                        _displayConnectionFilm(context, index, films),
-                  );
-                } else {
-                  return Container(
-                    margin: const EdgeInsets.all(15.0),
-                    width: 100.0,
-                    height: double.infinity,
-                    color: Colors.white,
-                    child: Center(child: Text('error')),
-                  );
-                }
-              },
+            child: Container(
+              margin: EdgeInsets.only(top: 10.0),
+              child: FutureBuilder<List<Film>>(
+                future: connections(),
+                builder: (context, constraint) {
+                  if (constraint.hasData) {
+                    List<Film> films = constraint.data;
+                    print(films.length);
+                    return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: films.length,
+                      itemBuilder: (context, index) =>
+                          _displayConnectionFilm(context, index, films),
+                    );
+                  } else {
+                    return Container(
+                      margin: const EdgeInsets.all(15.0),
+                      width: 100.0,
+                      height: double.infinity,
+                      color: Colors.white,
+                      child: Center(child: Text('error')),
+                    );
+                  }
+                },
+              ),
             ),
           ),
         ],
