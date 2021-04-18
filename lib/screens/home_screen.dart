@@ -55,10 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverPadding(
             padding: EdgeInsets.all(10.0),
             sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200.0,
-                color: Colors.red,
-              ),
+              child: LiveUsers(),
             ),
           ),
           SliverPadding(

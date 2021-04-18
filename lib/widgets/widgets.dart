@@ -4,3 +4,4 @@ export 'watched_film.dart';
 export 'connection_film.dart';
 export 'circle_user.dart';
 export 'custom_bar.dart';
+export 'live_user.dart';

@@ -9,9 +9,9 @@ class NavScreen extends StatefulWidget {
 
 class _NavScreenState extends State<NavScreen> {
   final _screens = <Widget>[
+    Scaffold(),
+    Scaffold(),
     HomeScreen(),
-    Scaffold(),
-    Scaffold(),
     Scaffold(),
     Scaffold(),
   ];
@@ -33,7 +33,8 @@ class _NavScreenState extends State<NavScreen> {
           physics: NeverScrollableScrollPhysics(),
           children: _screens,
         ),
-        bottomNavigationBar: Padding(
+        bottomNavigationBar: Container(
+          color: Colors.black,
           padding: const EdgeInsets.only(bottom: 16.0),
           child: CustomBar(
             icons: _icons,

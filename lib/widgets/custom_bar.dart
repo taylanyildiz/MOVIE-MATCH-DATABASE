@@ -28,7 +28,7 @@ class CustomBar extends StatelessWidget {
                   icon: Icon(
                 value,
                 size: 40.0,
-                color: key == selectedIndex ? Colors.red : Colors.black,
+                color: key == selectedIndex ? Colors.red : Colors.white,
               ))))
           .values
           .toList(),
