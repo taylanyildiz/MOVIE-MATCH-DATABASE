@@ -70,17 +70,25 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
     currentUser.connection.clear();
     films.clear();
     await addConnection(listUser[6]);
-    await addConnection(listUser[4]);
+    await addConnection(listUser[2]);
     for (var i = 0; i < currentUser.connection.length; i++) {
       for (Film f in listFilm) {
         for (var j = 0; j < f.user.length; j++) {
           if (f.user[j].user_id == currentUser.connection[i].user_id) {
-            films.add(f);
+            if (films.isEmpty)
+              films.add(f);
+            else {
+              for (var i = 0; i < films.length; i++) {
+                if (films[i].film_id != f.film_id) {
+                  films.add(f);
+                  break;
+                }
+              }
+            }
           }
         }
       }
     }
-
     return films;
   }
 

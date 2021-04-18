@@ -198,7 +198,6 @@ final listFilm = <Film>[
     user: [
       listUser[5],
       listUser[1],
-      listUser[2],
     ],
     comment: [
       listComments[0],
@@ -302,7 +301,6 @@ final listFilm = <Film>[
     user: [
       listUser[4],
       listUser[1],
-      listUser[2],
     ],
     comment: [
       listComments[0],
@@ -359,7 +357,6 @@ final listFilm = <Film>[
     user: [
       listUser[4],
       listUser[1],
-      listUser[2],
       listUser[0],
     ],
     comment: [
