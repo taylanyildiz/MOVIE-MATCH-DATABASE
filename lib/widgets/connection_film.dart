@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/models.dart';
@@ -55,7 +57,7 @@ class _ConnectionFilms extends StatefulWidget {
 
 class __ConnectionFilmsState extends State<_ConnectionFilms> {
   PageController _pageController;
-  int curretnPage = 0;
+  int currentPage = 0;
 
   @override
   void initState() {
@@ -64,27 +66,18 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
     _pageController = PageController(initialPage: 3, viewportFraction: 0.3);
   }
 
-  Future<List<Film>> connectionFilm() async {
-    final films = <Film>[];
-    final connectionFilm = <Film>[];
+  Future<HashSet<Film>> connectionFilm() async {
+    var films = HashSet<Film>();
     currentUser.connection.clear();
     films.clear();
     await addConnection(listUser[6]);
     await addConnection(listUser[2]);
+    await addConnection(listUser[1]);
     for (var i = 0; i < currentUser.connection.length; i++) {
       for (Film f in listFilm) {
         for (var j = 0; j < f.user.length; j++) {
           if (f.user[j].user_id == currentUser.connection[i].user_id) {
-            if (films.isEmpty)
-              films.add(f);
-            else {
-              for (var i = 0; i < films.length; i++) {
-                if (films[i].film_id != f.film_id) {
-                  films.add(f);
-                  break;
-                }
-              }
-            }
+            films.add(f);
           }
         }
       }
@@ -96,14 +89,14 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
     currentUser.connection.add(user);
   }
 
-  Widget pageViewWidget(context, index, List<Film> film) {
+  Widget pageViewWidget(context, index, film) {
     return AnimatedBuilder(
       animation: _pageController,
       builder: (context, child) {
         var value = 1.0;
         if (_pageController.position.hasContentDimensions) {
           value = _pageController.page - index;
-          value = (1 - (value.abs() * 0.3)).clamp(0.0, 1.0);
+          value = (1 - (value.abs() * 0.5)).clamp(0.0, 1.0);
         }
         return Center(
           child: SizedBox(
@@ -119,11 +112,11 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
 
   _onPageChanged(page) {
     setState(() {
-      curretnPage = page;
+      currentPage = page;
     });
   }
 
-  Widget _displayConnectionFilms(context, index, List<Film> films) {
+  Widget _displayConnectionFilms(context, index, Set<Film> films) {
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -135,17 +128,17 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
             height: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
-              border: curretnPage == index
+              border: currentPage == index
                   ? Border.all(width: 5.0, color: Colors.red)
                   : null,
             ),
             child: Image.asset(
-              films[index].film_imgUrl,
+              films.elementAt(index).film_imgUrl,
               fit: BoxFit.cover,
             ),
           ),
         ),
-        curretnPage == index
+        currentPage == index
             ? Positioned(
                 bottom: 0.0,
                 child: Row(
@@ -157,7 +150,7 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
                           color: Colors.white,
                         ),
                         Text(
-                          '${films[index].user.length}',
+                          '${films.elementAt(index).user.length}',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -172,7 +165,7 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
                           color: Colors.white,
                         ),
                         Text(
-                          '${films[index].comment.length}',
+                          '${films.elementAt(index).comment.length}',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -191,7 +184,7 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        child: FutureBuilder<List<Film>>(
+        child: FutureBuilder<Set<Film>>(
           future: connectionFilm(),
           builder: (context, constraint) {
             if (constraint.hasData) {
