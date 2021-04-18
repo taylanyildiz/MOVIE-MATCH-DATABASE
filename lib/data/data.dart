@@ -2,7 +2,7 @@ import 'package:movie_match_home/models/models.dart';
 import 'package:movie_match_home/src/movie_img.dart';
 
 // Current User
-final currentUser = User(
+var currentUser = User(
   user_id: 0,
   user_realname: 'Taylan',
   user_name: 'tylanyildz',
@@ -108,7 +108,6 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[4],
-      listUser[1],
       listUser[2],
     ],
     comment: [
@@ -128,7 +127,6 @@ final listFilm = <Film>[
     user: [
       listUser[5],
       listUser[4],
-      listUser[6],
     ],
   ),
   Film(
@@ -141,7 +139,6 @@ final listFilm = <Film>[
     user: [
       listUser[0],
       listUser[5],
-      listUser[6],
     ],
     comment: [
       listComments[0],
@@ -158,13 +155,10 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[3],
-      listUser[2],
-      listUser[1],
     ],
     comment: [
       listComments[0],
       listComments[3],
-      listComments[6],
       listComments[4],
     ],
   ),
@@ -176,9 +170,7 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[0],
-      listUser[4],
-      listUser[3],
+      listUser[6],
     ],
     comment: [
       listComments[0],
@@ -213,9 +205,7 @@ final listFilm = <Film>[
     film_about: 'Great Hack',
     film_director: 'film_director',
     film_cast: 'film_cast',
-    user: [
-      listUser[6],
-    ],
+    user: [],
     comment: [
       listComments[0],
       listComments[3],
@@ -250,12 +240,10 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[1],
-      listUser[2],
     ],
     comment: [
       listComments[0],
       listComments[3],
-      listComments[6],
       listComments[4],
     ],
   ),
@@ -270,8 +258,6 @@ final listFilm = <Film>[
       listUser[0],
       listUser[5],
       listUser[4],
-      listUser[3],
-      listUser[6],
     ],
     comment: [
       listComments[0],
@@ -288,9 +274,7 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[3],
       listUser[0],
-      listUser[6],
     ],
     comment: [
       listComments[0],
@@ -310,12 +294,10 @@ final listFilm = <Film>[
       listUser[4],
       listUser[1],
       listUser[2],
-      listUser[3],
     ],
     comment: [
       listComments[0],
       listComments[3],
-      listComments[6],
       listComments[4],
     ],
   ),
@@ -330,8 +312,6 @@ final listFilm = <Film>[
       listUser[0],
       listUser[5],
       listUser[4],
-      listUser[3],
-      listUser[6],
     ],
     comment: [
       listComments[0],
@@ -352,7 +332,6 @@ final listFilm = <Film>[
       listUser[1],
       listUser[2],
       listUser[5],
-      listUser[3],
     ],
     comment: [
       listComments[0],
@@ -373,8 +352,6 @@ final listFilm = <Film>[
       listUser[1],
       listUser[2],
       listUser[0],
-      listUser[3],
-      listUser[6],
     ],
     comment: [
       listComments[0],

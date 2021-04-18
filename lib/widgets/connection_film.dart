@@ -7,13 +7,15 @@ import 'package:movie_match_home/models/models.dart';
 class ConnectionFilm extends StatelessWidget {
   Future<List<Film>> connectionsFilm() async {
     final connectionFilm = <Film>[];
-    await addConnection(listUser[2]);
-    await addConnection(listUser[1]);
-    await addConnection(listUser[4]);
-    for (Film f in listFilm) {
-      for (var i = 0; i < f.user.length; i++) {
-        if (currentUser.connection[2].user_id == f.user[i].user_id)
-          connectionFilm.add(f);
+
+    await addConnection(listUser[3]);
+    await addConnection(listUser[6]);
+    for (var i = 0; i < currentUser.connection.length; i++) {
+      for (Film f in listFilm) {
+        for (var j = 0; j < f.user.length; j++) {
+          if (currentUser.connection[i].user_id == f.user[j].user_id)
+            connectionFilm.add(f);
+        }
       }
     }
     return connectionFilm;
@@ -44,42 +46,6 @@ class ConnectionFilm extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            bottom: 0.0,
-            child: Row(
-              children: [
-                Column(
-                  children: [
-                    Icon(
-                      Icons.play_arrow,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      '${films[index].user.length}',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 5.0),
-                Column(
-                  children: [
-                    Icon(
-                      Icons.comment,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      '${films[index].comment.length}',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          )
         ],
       ),
     );
