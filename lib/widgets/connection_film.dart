@@ -1,29 +1,33 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/models.dart';
-import 'package:movie_match_home/widgets/circle_user.dart';
 
 class ConnectionFilm extends StatelessWidget {
-  Future<List<Film>> connections() async {
+  Future<List<Film>> connectionsFilm() async {
     final connectionFilm = <Film>[];
-    currentUser.connection.add(listUser[2]);
-    currentUser.connection.add(listUser[1]);
+    await addConnection(listUser[2]);
+    await addConnection(listUser[1]);
+    await addConnection(listUser[4]);
     for (Film f in listFilm) {
       for (var i = 0; i < f.user.length; i++) {
-        if (currentUser.connection[i < 2 ? i : 1].user_id ==
-            f.user[i].user_id) {
+        if (currentUser.connection[2].user_id == f.user[i].user_id)
           connectionFilm.add(f);
-        }
       }
     }
     return connectionFilm;
+  }
+
+  Future addConnection(User user) async {
+    currentUser.connection.add(user);
   }
 
   _displayConnectionFilm(context, index, List<Film> films) {
     return GestureDetector(
       onTap: () => print('connections film'),
       child: Stack(
-        alignment: Alignment.topLeft,
+        alignment: Alignment.center,
         children: [
           Container(
             margin: const EdgeInsets.all(5.0),
@@ -40,6 +44,42 @@ class ConnectionFilm extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            bottom: 0.0,
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    Icon(
+                      Icons.play_arrow,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      '${films[index].user.length}',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 5.0),
+                Column(
+                  children: [
+                    Icon(
+                      Icons.comment,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      '${films[index].comment.length}',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -77,7 +117,7 @@ class ConnectionFilm extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.only(top: 10.0),
               child: FutureBuilder<List<Film>>(
-                future: connections(),
+                future: connectionsFilm(),
                 builder: (context, constraint) {
                   if (constraint.hasData) {
                     List<Film> films = constraint.data;
@@ -87,6 +127,10 @@ class ConnectionFilm extends StatelessWidget {
                       itemCount: films.length,
                       itemBuilder: (context, index) =>
                           _displayConnectionFilm(context, index, films),
+                    );
+                  } else if (constraint.hasError) {
+                    return Container(
+                      color: Colors.blue,
                     );
                   } else {
                     return Container(
