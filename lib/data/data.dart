@@ -128,6 +128,12 @@ final listFilm = <Film>[
       listUser[5],
       listUser[4],
     ],
+    comment: [
+      listComments[0],
+      listComments[3],
+      listComments[6],
+      listComments[4],
+    ],
   ),
   Film(
     film_id: 2,

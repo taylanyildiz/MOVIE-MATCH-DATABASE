@@ -7,9 +7,11 @@ import 'package:movie_match_home/models/models.dart';
 class ConnectionFilm extends StatelessWidget {
   Future<List<Film>> connectionsFilm() async {
     final connectionFilm = <Film>[];
-
+    connectionFilm.clear();
+    currentUser.connection.clear();
     await addConnection(listUser[3]);
     await addConnection(listUser[6]);
+    await addConnection(listUser[5]);
     for (var i = 0; i < currentUser.connection.length; i++) {
       for (Film f in listFilm) {
         for (var j = 0; j < f.user.length; j++) {
