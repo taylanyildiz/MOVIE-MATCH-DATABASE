@@ -107,8 +107,7 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[4],
-      listUser[2],
+      listUser[6],
       listUser[0],
       listUser[3],
     ],
@@ -126,7 +125,8 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[5],
+      listUser[3],
+      listUser[6],
       listUser[4],
     ],
     comment: [
@@ -143,8 +143,8 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[0],
-      listUser[5],
+      listUser[3],
+      listUser[4],
     ],
     comment: [
       listComments[3],
@@ -158,9 +158,7 @@ final listFilm = <Film>[
     film_about: 'The Dig',
     film_director: 'film_director',
     film_cast: 'film_cast',
-    user: [
-      listUser[3],
-    ],
+    user: [listUser[3], listUser[4]],
     comment: [
       listComments[3],
       listComments[4],

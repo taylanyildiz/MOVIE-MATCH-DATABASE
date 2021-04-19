@@ -16,21 +16,27 @@ class ProfileScreen extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 350.0,
             backgroundColor: Colors.red,
-            flexibleSpace: FlexibleSpaceBar(
-                background: FutureBuilder<List<String>>(
-              future: profilePhotos(),
-              builder: (context, constraint) {
-                if (constraint.hasData) {
-                  var img = constraint.data;
-                  return PageView.builder(
-                    itemBuilder: (context, index) =>
-                        _displayProfilePhoto(context, index, img),
-                  );
-                } else {
-                  return Container();
-                }
-              },
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20.0),
+              bottomRight: Radius.circular(20.0),
             )),
+            flexibleSpace: FlexibleSpaceBar(
+              background: FutureBuilder<List<String>>(
+                future: profilePhotos(),
+                builder: (context, constraint) {
+                  if (constraint.hasData) {
+                    var img = constraint.data;
+                    return PageView.builder(
+                      itemBuilder: (context, index) =>
+                          _displayProfilePhoto(context, index, img),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+            ),
           ),
         ],
       ),
