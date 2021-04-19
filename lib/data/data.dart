@@ -10,8 +10,8 @@ var currentUser = User(
   user_mail: 'taylanyildz@outlook.com',
   user_birthdate: '05/08/1995',
   user_photo_1: moviesList[0].imgUrl,
-  user_photo_2: moviesList[0].imgUrl,
-  user_photo_3: moviesList[0].imgUrl,
+  user_photo_2: moviesList[1].imgUrl,
+  user_photo_3: moviesList[2].imgUrl,
   connection: [],
 );
 
@@ -144,11 +144,11 @@ final listFilm = <Film>[
     film_cast: 'film_cast',
     user: [
       listUser[3],
-      listUser[4],
+      listUser[0],
     ],
     comment: [
       listComments[3],
-      listComments[4],
+      listComments[0],
     ],
   ),
   Film(
@@ -158,7 +158,10 @@ final listFilm = <Film>[
     film_about: 'The Dig',
     film_director: 'film_director',
     film_cast: 'film_cast',
-    user: [listUser[3], listUser[4]],
+    user: [
+      listUser[3],
+      listUser[4],
+    ],
     comment: [
       listComments[3],
       listComments[4],
@@ -174,6 +177,7 @@ final listFilm = <Film>[
     user: [
       listUser[6],
       listUser[4],
+      listUser[3],
     ],
     comment: [
       listComments[3],
@@ -189,8 +193,9 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[5],
-      listUser[1],
+      listUser[3],
+      listUser[4],
+      listUser[6],
     ],
     comment: [
       listComments[3],
@@ -205,7 +210,11 @@ final listFilm = <Film>[
     film_about: 'Great Hack',
     film_director: 'film_director',
     film_cast: 'film_cast',
-    user: [],
+    user: [
+      listUser[3],
+      listUser[6],
+      listUser[4],
+    ],
     comment: [
       listComments[3],
       listComments[6],
@@ -307,7 +316,6 @@ final listFilm = <Film>[
       listUser[4],
     ],
     comment: [
-      listComments[3],
       listComments[6],
       listComments[4],
     ],
@@ -326,9 +334,9 @@ final listFilm = <Film>[
       listUser[5],
     ],
     comment: [
-      listComments[3],
-      listComments[6],
-      listComments[4],
+      listComments[0],
+      listComments[1],
+      listComments[5],
     ],
   ),
   Film(
@@ -344,9 +352,9 @@ final listFilm = <Film>[
       listUser[0],
     ],
     comment: [
-      listComments[3],
-      listComments[6],
       listComments[4],
+      listComments[1],
+      listComments[0],
     ],
   ),
 ];
@@ -393,42 +401,6 @@ final listComments = <Comment>[
     comment_id: 7,
     comment_text: 'comment_text',
     user: listUser[6],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 8,
-    comment_text: 'comment_text',
-    user: listUser[1],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 9,
-    comment_text: 'comment_text',
-    user: listUser[1],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 11,
-    comment_text: 'comment_text',
-    user: listUser[2],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 12,
-    comment_text: 'comment_text',
-    user: listUser[4],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 13,
-    comment_text: 'comment_text',
-    user: listUser[4],
-    comment_time: 'today 20:12',
-  ),
-  Comment(
-    comment_id: 14,
-    comment_text: 'comment_text',
-    user: listUser[3],
     comment_time: 'today 20:12',
   ),
 ];

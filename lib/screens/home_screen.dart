@@ -1,8 +1,5 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
-import 'package:movie_match_home/models/models.dart';
 import 'package:movie_match_home/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
