@@ -9,7 +9,7 @@ class NavScreen extends StatefulWidget {
 
 class _NavScreenState extends State<NavScreen> {
   final _screens = <Widget>[
-    Scaffold(),
+    ProfileScreen(),
     Scaffold(),
     HomeScreen(),
     Scaffold(),
@@ -24,10 +24,6 @@ class _NavScreenState extends State<NavScreen> {
     Icons.settings,
   ];
   int _selectedIndex = 2;
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

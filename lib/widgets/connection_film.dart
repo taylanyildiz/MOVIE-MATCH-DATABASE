@@ -21,7 +21,13 @@ class ConnectionFilm extends StatelessWidget {
 }
 
 /// Head
-class _HeadWidget extends StatelessWidget {
+class _HeadWidget extends StatefulWidget {
+  @override
+  __HeadWidgetState createState() => __HeadWidgetState();
+}
+
+class __HeadWidgetState extends State<_HeadWidget> {
+  var isSearch = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,18 +35,32 @@ class _HeadWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            'Arkadaşlarının izledikleri',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          !isSearch
+              ? Text(
+                  'Arkadaşlarının izledikleri',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : Expanded(
+                  child: TextField(
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                    decoration: InputDecoration.collapsed(
+                      hintText: 'Film veya arkadaşını ara',
+                      hintStyle: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
           IconButton(
             color: Colors.blue,
-            icon: Icon(Icons.search),
-            onPressed: () => print('search'),
+            icon: Icon(isSearch ? Icons.search_off : Icons.search),
+            onPressed: () => setState(() => isSearch = !isSearch),
           ),
         ],
       ),
@@ -138,6 +158,19 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
             ),
           ),
         ),
+        currentPage == index
+            ? Positioned(
+                top: 0.0,
+                child: Text(
+                  films.elementAt(index).film_name,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                  ),
+                ),
+              )
+            : SizedBox.shrink(),
         currentPage == index
             ? Positioned(
                 bottom: 0.0,

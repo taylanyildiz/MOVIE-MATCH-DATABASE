@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var isSearch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,19 +31,19 @@ class _HomeScreenState extends State<HomeScreen> {
             )),
             toolbarHeight: 120.0,
             backgroundColor: Colors.black,
-            leadingWidth: 150.0,
+            leadingWidth: 200.0,
             leading: Row(
               children: [
                 CircleButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () => print('search'),
+                  icon: Icon(isSearch ? Icons.search_off : Icons.search),
+                  onPressed: () => setState(() => isSearch = !isSearch),
                   iconSize: 30.0,
                 ),
                 CircleButton(
                   icon: Icon(Icons.share),
                   onPressed: () => print('share'),
                   iconSize: 30.0,
-                ),
+                )
               ],
             ),
             actions: [
