@@ -39,7 +39,6 @@ class _CurrentFilmState extends State<CurrentFilm> {
             width: 100.0,
             height: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
               borderRadius: BorderRadius.circular(15.0),
               boxShadow: [
                 BoxShadow(

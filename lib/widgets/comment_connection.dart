@@ -72,44 +72,87 @@ class CommentConnection extends StatelessWidget {
                   if (constraint.hasData) {
                     List<Comment> user = constraint.data;
                     return ListView.builder(
-                      //padding: EdgeInsets.symmetric(horizontal: 10.0),
+                      //padding: EdgeInsets.symmetric(vertical: 5.0),
                       scrollDirection: Axis.vertical,
                       itemCount: user.length,
                       itemBuilder: (context, index) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              '${user[index].comment_time}.',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13.0,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                CircleProfile(
-                                  fontSize: 15.0,
-                                  isColumn: false,
-                                  radius: 15.0,
-                                  user: user[index].user,
-                                  onPressed: () => print('user'),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    child: Text(
-                                      '${user[index].comment_text}',
-                                      style: TextStyle(
-                                        color: Colors.white,
+                        return Container(
+                          margin: EdgeInsets.symmetric(vertical: 3.0),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  CircleProfile(
+                                    padding: 0.0,
+                                    fontSize: 20.0,
+                                    isColumn: false,
+                                    radius: 10.0,
+                                    user: user[index].user,
+                                    onPressed: () => print('user'),
+                                  ),
+                                  SizedBox(width: 5.0),
+                                  Expanded(
+                                    child: Container(
+                                      child: Text(
+                                        '${user[index].user.user_name}: ${user[index].comment_text}',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15.0,
+                                        ),
+                                        overflow: TextOverflow.clip,
+                                        maxLines: 2,
                                       ),
-                                      overflow: TextOverflow.clip,
-                                      maxLines: 2,
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    user[index].comment_time,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10.0,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.linked_camera,
+                                        color: Colors.red,
+                                        size: 15.0,
+                                      ),
+                                      Text(
+                                        '25',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 10.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.comment,
+                                        color: Colors.red,
+                                        size: 15.0,
+                                      ),
+                                      Text(
+                                        '25',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 10.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         );
                       },
                     );

@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/models.dart';
+import 'package:movie_match_home/screens/screens.dart';
 
 class ConnectionFilm extends StatelessWidget {
   @override
@@ -137,79 +138,89 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
   }
 
   Widget _displayConnectionFilms(context, index, Set<Film> films) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(15.0),
-          child: Container(
-            margin: EdgeInsets.all(3.0),
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: currentPage == index
-                  ? Border.all(width: 5.0, color: Colors.red)
-                  : null,
-            ),
-            child: Image.asset(
-              films.elementAt(index).film_imgUrl,
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () => currentPage == index
+          ? Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailScreen(
+                        film: films.elementAt(index),
+                      )))
+          : print('${index}'),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15.0),
+            child: Container(
+              margin: EdgeInsets.all(3.0),
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: currentPage == index
+                    ? Border.all(width: 5.0, color: Colors.red)
+                    : null,
+              ),
+              child: Image.asset(
+                films.elementAt(index).film_imgUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        currentPage == index
-            ? Positioned(
-                top: 0.0,
-                child: Text(
-                  films.elementAt(index).film_name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.0,
-                  ),
-                ),
-              )
-            : SizedBox.shrink(),
-        currentPage == index
-            ? Positioned(
-                bottom: 0.0,
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Icon(
-                          Icons.play_arrow,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          '${films.elementAt(index).user.length}',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
+          currentPage == index
+              ? Positioned(
+                  top: 0.0,
+                  child: Text(
+                    films.elementAt(index).film_name,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
                     ),
-                    SizedBox(width: 5.0),
-                    Column(
-                      children: [
-                        Icon(
-                          Icons.comment,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          '${films.elementAt(index).comment.length}',
-                          style: TextStyle(
+                  ),
+                )
+              : SizedBox.shrink(),
+          currentPage == index
+              ? Positioned(
+                  bottom: 0.0,
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Icon(
+                            Icons.play_arrow,
                             color: Colors.white,
                           ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            : SizedBox.shrink(),
-      ],
+                          Text(
+                            '${films.elementAt(index).user.length}',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 5.0),
+                      Column(
+                        children: [
+                          Icon(
+                            Icons.comment,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            '${films.elementAt(index).comment.length}',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              : SizedBox.shrink(),
+        ],
+      ),
     );
   }
 
