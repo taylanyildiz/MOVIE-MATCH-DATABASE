@@ -1,5 +1,8 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
+import 'package:movie_match_home/models/models.dart';
 import 'package:movie_match_home/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,15 +24,36 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leadingWidth: 120.0,
           toolbarHeight: 120.0,
           elevation: 0.0,
           backgroundColor: Colors.black,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20.0),
+              bottomRight: Radius.circular(20.0),
+            ),
+          ),
           actions: [
             CircleProfile(
-              currentUser: currentUser,
+              user: currentUser,
               onPressed: () => print('current user'),
             ),
           ],
+          leading: Row(
+            children: [
+              CircleButton(
+                icon: Icons.search,
+                onPressed: () => print('search'),
+                iconSize: 15.0,
+              ),
+              CircleButton(
+                icon: Icons.share,
+                onPressed: () => print('share'),
+                iconSize: 15.0,
+              ),
+            ],
+          ),
         ),
         backgroundColor: Color(0xFF201D1D),
         body: CustomScrollView(
@@ -55,9 +79,59 @@ class _HomeScreenState extends State<HomeScreen> {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  return CommentConnection();
+                  var films = HashSet<Film>();
+                  final filmComment = HashSet<Film>();
+                  filmComment.clear();
+                  films.clear();
+                  for (var i = 0; i < currentUser.connection.length; i++) {
+                    for (Film f in listFilm) {
+                      for (var j = 0; j < f.user.length; j++) {
+                        if (f.user[j].user_id ==
+                            currentUser.connection[i].user_id) {
+                          films.add(f);
+                        }
+                      }
+                    }
+                  }
+                  for (var i = 0; i < currentUser.connection.length; i++) {
+                    for (Film f in films) {
+                      for (var j = 0; j < f.comment.length; j++) {
+                        if (f.comment[j].user.user_id ==
+                            currentUser.connection[i].user_id) {
+                          filmComment.add(f);
+                        }
+                      }
+                    }
+                  }
+                  return CommentConnection(film: filmComment.elementAt(index));
                 },
-                childCount: 0,
+                childCount: (() {
+                  var films = HashSet<Film>();
+                  final filmComment = HashSet<Film>();
+                  filmComment.clear();
+                  films.clear();
+                  for (var i = 0; i < currentUser.connection.length; i++) {
+                    for (Film f in listFilm) {
+                      for (var j = 0; j < f.user.length; j++) {
+                        if (f.user[j].user_id ==
+                            currentUser.connection[i].user_id) {
+                          films.add(f);
+                        }
+                      }
+                    }
+                  }
+                  for (var i = 0; i < currentUser.connection.length; i++) {
+                    for (Film f in films) {
+                      for (var j = 0; j < f.comment.length; j++) {
+                        if (f.comment[j].user.user_id ==
+                            currentUser.connection[i].user_id) {
+                          filmComment.add(f);
+                        }
+                      }
+                    }
+                  }
+                  return filmComment.length;
+                }()),
               ),
             )
           ],
