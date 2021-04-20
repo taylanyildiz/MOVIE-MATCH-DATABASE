@@ -4,36 +4,64 @@ import 'package:movie_match_home/models/models.dart';
 class CircleProfile extends StatelessWidget {
   final User user;
   final Function onPressed;
-  const CircleProfile({
+  final double radius;
+  final double fontSize;
+  bool isColumn;
+  CircleProfile({
     Key key,
+    this.radius,
+    this.isColumn = true,
     @required this.user,
     @required this.onPressed,
+    this.fontSize,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(15.0),
-      child: Column(
-        children: [
-          InkWell(
-            onTap: onPressed,
-            child: CircleAvatar(
-              radius: 30.0,
-              backgroundColor: Colors.grey,
-              backgroundImage: AssetImage(user.user_photo_1),
+      child: isColumn
+          ? Column(
+              children: [
+                InkWell(
+                  onTap: onPressed,
+                  child: CircleAvatar(
+                    radius: radius ?? 30.0,
+                    backgroundColor: Colors.grey,
+                    backgroundImage: AssetImage(user.user_photo_1),
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Text(
+                  user.user_realname,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: fontSize ?? 20.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                InkWell(
+                  onTap: onPressed,
+                  child: CircleAvatar(
+                    radius: radius ?? 30.0,
+                    backgroundColor: Colors.grey,
+                    backgroundImage: AssetImage(user.user_photo_1),
+                  ),
+                ),
+                SizedBox(width: 5.0),
+                Text(
+                  ' ${user.user_realname} :',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: fontSize ?? 20.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
-          ),
-          SizedBox(height: 5.0),
-          Text(
-            user.user_realname,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20.0,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

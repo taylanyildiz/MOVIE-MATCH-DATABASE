@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/models.dart';
 import 'package:movie_match_home/widgets/widgets.dart';
 
@@ -10,11 +11,24 @@ class CommentConnection extends StatelessWidget {
     @required this.film,
   }) : super(key: key);
 
+  Future<List<Comment>> commentUser() async {
+    final user = <Comment>[];
+    user.clear();
+    for (var i = 0; i < currentUser.connection.length; i++) {
+      for (Comment c in film.comment) {
+        if (currentUser.connection[i].user_id == c.user.user_id) {
+          user.add(c);
+        }
+      }
+    }
+    return user;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.0),
-      height: 200.0,
+      height: 220.0,
       width: MediaQuery.of(context).size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -48,6 +62,63 @@ class CommentConnection extends StatelessWidget {
                 ),
               )
             ],
+          ),
+          Expanded(
+            child: Container(
+              //color: Colors.red,
+              child: FutureBuilder<List<Comment>>(
+                future: commentUser(),
+                builder: (context, constraint) {
+                  if (constraint.hasData) {
+                    List<Comment> user = constraint.data;
+                    return ListView.builder(
+                      //padding: EdgeInsets.symmetric(horizontal: 10.0),
+                      scrollDirection: Axis.vertical,
+                      itemCount: user.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              '${user[index].comment_time}.',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13.0,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                CircleProfile(
+                                  fontSize: 15.0,
+                                  isColumn: false,
+                                  radius: 15.0,
+                                  user: user[index].user,
+                                  onPressed: () => print('user'),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    child: Text(
+                                      '${user[index].comment_text}',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                      overflow: TextOverflow.clip,
+                                      maxLines: 2,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } else {
+                    return Container(color: Colors.blue);
+                  }
+                },
+              ),
+            ),
           )
         ],
       ),

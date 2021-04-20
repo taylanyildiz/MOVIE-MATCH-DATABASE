@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 import 'package:movie_match_home/models/film_model.dart';
+import 'package:movie_match_home/screens/screens.dart';
 
 class CurrentFilm extends StatefulWidget {
   @override
@@ -29,7 +30,10 @@ class _CurrentFilmState extends State<CurrentFilm> {
       alignment: Alignment.bottomCenter,
       children: [
         GestureDetector(
-          onTap: () => print('movies'),
+          onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailScreen(film: films[index]))),
           child: Container(
             margin: const EdgeInsets.all(5.0),
             width: 100.0,
@@ -47,9 +51,12 @@ class _CurrentFilmState extends State<CurrentFilm> {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: Image.asset(
-                films[index].film_imgUrl,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: films[index].film_imgUrl,
+                child: Image.asset(
+                  films[index].film_imgUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

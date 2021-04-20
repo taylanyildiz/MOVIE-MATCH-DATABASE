@@ -90,9 +90,9 @@ class __ConnectionFilmsState extends State<_ConnectionFilms> {
     var films = HashSet<Film>();
     currentUser.connection.clear();
     films.clear();
-    await addConnection(listUser[6]);
-    await addConnection(listUser[2]);
-    await addConnection(listUser[1]);
+    await addConnection(listUser[6]); //Can
+    await addConnection(listUser[2]); //Barış
+    await addConnection(listUser[1]); //Yağmur
     for (var i = 0; i < currentUser.connection.length; i++) {
       for (Film f in listFilm) {
         for (var j = 0; j < f.user.length; j++) {

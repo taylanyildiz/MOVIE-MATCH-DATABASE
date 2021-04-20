@@ -107,13 +107,13 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[6],
+      listUser[2],
       listUser[0],
       listUser[3],
     ],
     comment: [
       listComments[3],
-      listComments[6],
+      listComments[2],
       listComments[0],
     ],
   ),
@@ -176,10 +176,10 @@ final listFilm = <Film>[
     user: [
       listUser[6],
       listUser[4],
-      listUser[3],
+      listUser[2],
     ],
     comment: [
-      listComments[3],
+      listComments[2],
       listComments[6],
       listComments[4],
     ],
@@ -346,14 +346,14 @@ final listFilm = <Film>[
     film_director: 'film_director',
     film_cast: 'film_cast',
     user: [
-      listUser[4],
+      listUser[6],
+      listUser[2],
       listUser[1],
-      listUser[0],
     ],
     comment: [
-      listComments[4],
       listComments[1],
-      listComments[0],
+      listComments[2],
+      listComments[6],
     ],
   ),
 ];
@@ -368,38 +368,44 @@ final listComments = <Comment>[
   ),
   Comment(
     comment_id: 2,
-    comment_text: 'comment_text',
-    user: listUser[2],
+    comment_text: 'Bilmiyorum ama beğendim sanki farklı bir şey var filmde',
+    user: listUser[1],
     comment_time: 'today 20:12',
   ),
   Comment(
     comment_id: 3,
     comment_text: 'comment_text',
-    user: listUser[3],
+    user: listUser[2],
     comment_time: 'today 20:12',
   ),
   Comment(
     comment_id: 4,
     comment_text: 'comment_text',
-    user: listUser[5],
+    user: listUser[3],
     comment_time: 'today 20:12',
   ),
   Comment(
     comment_id: 5,
     comment_text: 'comment_text',
-    user: listUser[7],
+    user: listUser[4],
     comment_time: 'today 20:12',
   ),
   Comment(
     comment_id: 6,
     comment_text: 'comment_text',
-    user: listUser[6],
+    user: listUser[5],
     comment_time: 'today 20:12',
   ),
   Comment(
     comment_id: 7,
     comment_text: 'comment_text',
     user: listUser[6],
+    comment_time: 'today 20:12',
+  ),
+  Comment(
+    comment_id: 8,
+    comment_text: 'comment_text',
+    user: listUser[7],
     comment_time: 'today 20:12',
   ),
 ];
