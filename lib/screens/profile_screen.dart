@@ -1,43 +1,147 @@
+import 'package:cf_indicator/cf_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_match_home/data/data.dart';
 
 class ProfileScreen extends StatelessWidget {
-  Future<List<String>> profilePhotos() async {
-    final img = <String>[];
-    for (var i = 0; i < 3; i++) {}
+  Widget _displayProfileWidget(context, index) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      width: double.infinity,
+      height: double.infinity,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: Image.asset(
+          profile[index],
+          fit: BoxFit.fill,
+        ),
+      ),
+    );
   }
 
-  _displayProfilePhoto(context, index, img) {}
+  final profile = <String>[
+    currentUser.user_photo_1,
+    currentUser.user_photo_2,
+    currentUser.user_photo_3,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            expandedHeight: 350.0,
-            backgroundColor: Colors.red,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20.0),
-              bottomRight: Radius.circular(20.0),
-            )),
-            flexibleSpace: FlexibleSpaceBar(
-              background: FutureBuilder<List<String>>(
-                future: profilePhotos(),
-                builder: (context, constraint) {
-                  if (constraint.hasData) {
-                    var img = constraint.data;
-                    return PageView.builder(
-                      itemBuilder: (context, index) =>
-                          _displayProfilePhoto(context, index, img),
-                    );
-                  } else {
-                    return Container();
-                  }
-                },
+      backgroundColor: Color(0xFF201D1D),
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                height: 400.0,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: PageIndicator(
+                  width: MediaQuery.of(context).size.width,
+                  height: 400,
+                  // indicator: Indicator(
+                  //   indicatorColor: Colors.red,
+                  //   indicatorBackColor: Colors.white,
+                  //   radius: 8.0,
+                  // ),
+                  onPageChanged: (page) => print(page),
+                  page: profile.length,
+                  builder: (context, index) =>
+                      _displayProfileWidget(context, index),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20.0),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              padding: const EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 2.0,
+                      offset: Offset(0.0, 5.0),
+                    )
+                  ]),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.message,
+                    color: Colors.black,
+                  ),
+                  Text(
+                    '12',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  )
+                ],
               ),
             ),
-          ),
+            VerticalDivider(width: 8.0),
+            Container(
+              padding: const EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 2.0,
+                      offset: Offset(0.0, 5.0),
+                    )
+                  ]),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.message,
+                    color: Colors.black,
+                  ),
+                  Text(
+                    '12',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            VerticalDivider(width: 8.0),
+            Container(
+              padding: const EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 2.0,
+                      offset: Offset(0.0, 5.0),
+                    )
+                  ]),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.play_arrow,
+                    color: Colors.black,
+                  ),
+                  Text(
+                    '12',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ])
         ],
       ),
     );
